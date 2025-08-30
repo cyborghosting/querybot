@@ -1,0 +1,11 @@
+[project]
+name = "querybot-rewrite"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "aiosqlite>=0.21.0",
+    "discord>=2.3.2",
+    "python-a2s>=1.4.1",
+]
