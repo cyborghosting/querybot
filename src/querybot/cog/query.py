@@ -53,27 +53,27 @@ class QueryCog(commands.Cog):
             a2s_info = await a2s.ainfo((ip_address, port), 3.0, "UTF-8")
         except socket.timeout:
             await interaction.followup.send(
-                f"Server '{host.hostname}:{host.port}' is offline."
+                f"Server '{query}' is offline."
             )
             return
         except socket.gaierror:
             await interaction.followup.send(
-                f"Server '{host.hostname}:{host.port}' is unreachable."
+                f"Server '{query}' is unreachable."
             )
             return
         except:
             await interaction.followup.send(
-                f"Error occurred while querying server '{host.hostname}:{host.port}'."
+                f"Error occurred while querying server '{query}'."
             )
             return
 
         embed = discord.Embed(title=a2s_info.server_name)
         embed.set_author(name="Server Information")
-        embed.add_field(
-            name="Host",
-            value=f"[steam://connect/{host.hostname}:{host.port}](https://www.gaez.uk/steam/?hostname={ip_address}&port={port})",
-            inline=False,
-        )
+        # embed.add_field(
+        #     name="Host",
+        #     value=f"[steam://connect/{host.hostname}:{host.port}](https://www.gaez.uk/steam/?hostname={ip_address}&port={port})",
+        #     inline=False,
+        # )
         embed.add_field(name="Map", value=f"{a2s_info.map_name}", inline=True)
         embed.add_field(
             name="Players",
@@ -108,17 +108,17 @@ class QueryCog(commands.Cog):
                 )
             except socket.timeout:
                 await interaction.followup.send(
-                    f"Server '{host.hostname}:{host.port}' is offline."
+                    f"Server '{query}' is offline."
                 )
                 return
             except socket.gaierror:
                 await interaction.followup.send(
-                    f"Server '{host.hostname}:{host.port}' is unreachable."
+                    f"Server '{query}' is unreachable."
                 )
                 return
             except:
                 await interaction.followup.send(
-                    f"Error occurred while querying server '{host.hostname}:{host.port}'."
+                    f"Error occurred while querying server '{query}'."
                 )
                 return
 
